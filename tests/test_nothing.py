@@ -23,3 +23,13 @@ def test_add_security_to_portfolio() -> None:
     portfolio.securities.append("AAPL")
     # Assert
     assert ("AAPL") in portfolio.securities
+
+def test_delete_security_from_portfolio() -> None:
+    """Test deleting a security from the portfolio."""
+    # Arrange
+    logged_in_user = User( 1, "cedric", "cedric@gmail.com", "cedspassword")
+    portfolio = Portfolio(logged_in_user, "Retirement Fund", ["AAPL"])
+    # Act
+    portfolio.securities.remove("AAPL")
+    # Assert
+    assert ("AAPL") not in portfolio.securities

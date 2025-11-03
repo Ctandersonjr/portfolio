@@ -51,7 +51,7 @@ class Portfolio:
         """
         self.owner_id: int = owner_id
         self.name: str = name
-        self.securities: list[Any] = []
+        self.securities: list[Any] = securities
 
 class AddSecurity:
     """A class to add securities to a portfolio."""
@@ -66,4 +66,19 @@ class AddSecurity:
             The security to add to the portfolio.
         """
         portfolio.securities.append(security)
+
+class DeleteSecurity:
+    """A class to delete securities from a portfolio."""
+
+    def delete_security(self: "DeleteSecurity", portfolio: Portfolio, security: list[Any]) -> None:
+        """
+        Delete a security from the given portfolio.
+
+        portfolio : Portfolio
+            The portfolio from which the security will be deleted.
+        security : Any
+            The security to delete from the portfolio.
+        """
+        if security in portfolio.securities:
+            portfolio.securities.remove(security)
 
