@@ -1,73 +1,54 @@
-import yfinance as yf
-import numpy as np
+from typing import Any
 
-class user:
-    def person(self, user_id, username, email, password):
-        self.id = user_id
-        self.username = username
-        self.email = email
-        self.password = password
-        self.portfolios = []
 
-class authentication:
-    def login(self, username, password)
-        pass
+class User:
+    """
+    A user of the portfolio system.
 
-    def authorize(self, user_id, portfolio_owner_id):
-        return user_id == portfolio_owner_id
+    id : int
+        Unique user identifier.
+    username : str
+        The user's username.
+    email : str
+        The user's email address.
+    password : str
+        The user's password (should be stored hashed in production).
+    portfolios : list
+        List of the user's portfolio objects.
 
-class assets:
-     def securities(self, symbol, shares, purchase_price):
-        self.symbol = symbol
-        self.shares = shares
-        self.purchase_price = purchase_price
+    """
 
-     def current_value(self, current_price):
-        return self.shares * current_price
+    def __init__(self: "User", user_id: int, username: str, email: str, password: str) -> None:
+        """Initialize a User."""
+        self.id: int = user_id
+        self.username: str = username
+        self.email: str = email
+        self.password: str = password
+        self.portfolios: list[Any] = []
 
-class portfolio:
-    def portfolio(self, owner_id, name):
-        self.owner_id = owner_id
-        self.name = name
-        self.assets = []
 
-     def add_security(self, security):
-        self.securities.append(security)
+class Portfolio:
+    """
+    A portfolio owned by a user.
 
-    def remove_security(self, symbol):
-        self.securities = [s for s in self.holdings if s.symbol != symbol]
-    
-class portfolioAnalytics:
-    def __init__(self, portfolio):
-        self.portfolio = portfolio
+    owner_id : int
+        The id of the user who owns the portfolio.
+    name : str
+        The portfolio name.
+    securities : list
+        List of securities held in the portfolio.
 
-    def calculate_total_value(self, prices):
-        return sum(h.current_value(prices.get(h.symbol, 0)) for h in self.portfolio.holdings)
+    """
 
-    def calculate_gains(self, prices):
-        invested = sum(h.shares * h.purchase_price for h in self.portfolio.holdings)
-        return self.calculate_total_value(prices) - invested
+    def __init__(self, owner_id: int, name: str, securities: list[Any]) -> None:
+        """
+        Initialize a Portfolio.
 
-    def calculate_risk(self, historical_returns):
-        return np.std(historical_returns)
-
-class TaxReport:
-    def __init__(self, portfolio, tax_year):
-        self.portfolio = portfolio
-        self.tax_year = tax_year
-
-    def generate_form(self):
-        return {
-            "year": self.tax_year,
-            "total_gains": 0,
-            "total_losses": 0,
-        }
-
-class MarketData:
-    def get_historical_data(self, symbol, period="1y"):
-        data = yf.download(symbol, period=period, progress=False)
-        return data
-
-class Visualization:
-    pass
-
+        owner_id : int
+            The id of the portfolio owner.
+        name : str
+            The portfolio name.
+        """
+        self.owner_id: int = owner_id
+        self.name: str = name
+        self.securities: list[Any] = []
