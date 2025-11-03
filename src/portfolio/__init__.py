@@ -52,3 +52,18 @@ class Portfolio:
         self.owner_id: int = owner_id
         self.name: str = name
         self.securities: list[Any] = []
+
+class AddSecurity:
+    """A class to add securities to a portfolio."""
+
+    def add_security(self: "AddSecurity", portfolio: Portfolio, security: list[Any]) -> None:
+        """
+        Add a security to the given portfolio.
+
+        portfolio : Portfolio
+            The portfolio to which the security will be added.
+        security : Any
+            The security to add to the portfolio.
+        """
+        portfolio.securities.append(security)
+

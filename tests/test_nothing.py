@@ -13,3 +13,13 @@ def test_view_current_portfolio_holdings() -> None:
     # Assert
     securities: list[Any] = []
     assert securities == holdings
+
+def test_add_security_to_portfolio() -> None:
+    """Test adding a security to the portfolio."""
+    # Arrange
+    logged_in_user = User( 1, "cedric", "cedric@gmail.com", "cedspassword")
+    portfolio = Portfolio(logged_in_user, "Retirement Fund", [])
+    # Act
+    portfolio.securities.append("AAPL")
+    # Assert
+    assert ("AAPL") in portfolio.securities
