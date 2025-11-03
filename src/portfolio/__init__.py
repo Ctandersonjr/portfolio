@@ -82,3 +82,33 @@ class DeleteSecurity:
         if security in portfolio.securities:
             portfolio.securities.remove(security)
 
+class GraphicalView:
+    """A class to represent graphical views of portfolio data."""
+
+    def display_graph(self: "GraphicalView", portfolio: Portfolio) -> None:
+        """
+        Display a graphical representation of the portfolio data.
+
+        portfolio : Portfolio
+            The portfolio whose data will be graphically represented.
+        """
+        # Placeholder for graphical representation logic
+        print(f"Displaying graphical view for portfolio: {portfolio.name}")
+
+class TaxData:
+    """A class to handle tax data related to portfolios."""
+
+    def calculate_tax(self: "TaxData", portfolio: Portfolio) -> float:
+        """
+        Calculate tax based on the portfolio data.
+
+        portfolio : Portfolio
+            The portfolio for which tax will be calculated.
+
+        Returns
+        -------
+        float
+            The calculated tax amount.
+        """
+
+        return 0.0
