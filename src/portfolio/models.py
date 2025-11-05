@@ -1,11 +1,12 @@
 from typing import Optional, Dict
+import yfinance as yf
 
 class Security:
     """ A security held in a portfolio. """
 
-    def __init__(self, symbol: str, quantity: int, purchase_price: float) -> None:
+    def __init__(self, ticker: str, quantity: int, purchase_price: float) -> None:
         """ Initialize a Security. """
-        self.symbol = symbol
+        self.ticker = yf.Ticker(ticker)
         self.quantity = quantity
         self.purchase_price = purchase_price
 
@@ -34,7 +35,7 @@ class SecurityService:
 
     def add_security(self, portfolio: Portfolio, security: Security) -> None:
         """ Add a security to the given portfolio. """
-        portfolio.securities[security.symbol] = security
+        portfolio.securities[security.ticker] = security
 
     def delete_security(self, portfolio: Portfolio, symbol: str) -> None:
         """ Delete a security from the given portfolio by symbol. """
