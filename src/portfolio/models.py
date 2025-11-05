@@ -1,4 +1,6 @@
-class securities:
+from typing import Optional, Dict
+
+class Security:
     """ A security held in a portfolio. """
 
     def __init__(self, symbol: str, quantity: int, purchase_price: float) -> None:
@@ -10,11 +12,12 @@ class securities:
 class Portfolio:
     """ A portfolio owned by a user. """
 
-    def __init__(self, owner_id: int, name: str, securities: dict[securities]) -> None:
+    def __init__(self, owner_id: int, name: str, securities: Optional[Dict[str, Security]] = None) -> None:
         """ Initialize a Portfolio. """
         self.owner_id = owner_id
         self.name = name
-        self.securities = securities # type: ignore
+        self.securities: Dict[str, Security] = securities or {}
+
 class User:
     """ A user of the portfolio system. """
 
@@ -29,14 +32,14 @@ class User:
 class SecurityService:
     """A class to add securities to a portfolio."""
 
-    def add_security(self, portfolio: Portfolio, security: dict[securities]) -> None:
+    def add_security(self, portfolio: Portfolio, security: Security) -> None:
         """ Add a security to the given portfolio. """
-        portfolio.securities[securities.symbol] = securities
+        portfolio.securities[security.symbol] = security
 
-    def delete_security(self, portfolio: Portfolio, security: dict[securities]) -> None:
-        """ Delete a security from the given portfolio. """
-        if security in portfolio.securities:
-            del portfolio.securities[securities.symbol]
+    def delete_security(self, portfolio: Portfolio, symbol: str) -> None:
+        """ Delete a security from the given portfolio by symbol. """
+        if symbol in portfolio.securities:
+            del portfolio.securities[symbol]
 
 class GraphicalView:
     """ Graphical views of portfolio data. """
