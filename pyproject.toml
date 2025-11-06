@@ -4,21 +4,19 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-authors = [
-    { name = "Cedric Anderson Jr", email = "CTANDERSON2@Anderson.edu" }
-]
+authors = [{ name = "Cedric Anderson Jr", email = "CTANDERSON2@Anderson.edu" }]
 dependencies = []
+
 [dependency-groups]
 dev = [
     "mypy>=1.18.2",
     "pytest>=8.4.2",
     "ruff>=0.14.1",
-    
-
 ]
+
 [tool.ruff]
 # Basic Ruff configuration
-line-length = 100
+line-length = 120
 indent-width = 4
 target-version = "py310"
 ignore = [
@@ -32,23 +30,8 @@ ignore = [
     "D107"
 ]
 
-
-# Automatically fix import order, whitespace, etc.
-fix = true
-show-fixes = true
-src = ["src", "tests"]
-
 [tool.mypy]
-python_version = "3.10"
-disallow_untyped_defs = true
-disallow_incomplete_defs = true
-warn_return_any = true
-warn_unused_ignores = true
-check_untyped_defs = true
-ignore_missing_imports = true
-
-
-mypy_path = ["src"]
+strict = true
 
 [tool.pytest.ini_options]
 minversion = "8.0"
