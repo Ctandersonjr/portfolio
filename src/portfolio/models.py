@@ -1,5 +1,5 @@
 from typing import Optional, Dict
-import yfinance as yf
+import yfinance as yf 
 
 class Security:
     """ A security held in a portfolio. """
@@ -18,16 +18,6 @@ class Portfolio:
         self.owner_id = owner_id
         self.name = name
         self.securities: Dict[str, Security] = securities or {}
-
-class User:
-    """ A user of the portfolio system. """
-
-    def __init__(self, user_id: int, username: str, email: str, password: str) -> None:
-        """Initialize a User."""
-        self.id = user_id
-        self.username = username
-        self.email = email
-        self.password = password
 
 
 class SecurityService:
