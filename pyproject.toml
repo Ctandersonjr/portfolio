@@ -5,7 +5,9 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 authors = [{ name = "Cedric Anderson Jr", email = "CTANDERSON2@Anderson.edu" }]
-dependencies = []
+dependencies = [
+    "psycopg>=3.2.12",
+]
 
 [dependency-groups]
 dev = [
