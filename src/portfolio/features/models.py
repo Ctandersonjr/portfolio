@@ -1,5 +1,5 @@
 from typing import Optional, Dict
-import yfinance as yf 
+import yfinance as yf # type: ignore
 
 class Security:
     """ A security held in a portfolio. """
