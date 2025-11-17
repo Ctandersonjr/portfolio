@@ -4,6 +4,7 @@ import psycopg
 with psycopg.connect(
     "postgresql://postgres:Anderson2345@localhost:5432/postgres"
 ) as conn:
+
     with conn.cursor() as cur:
         cur.execute("""
         CREATE TABLE IF NOT EXISTS test (
