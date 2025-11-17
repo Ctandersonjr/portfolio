@@ -7,8 +7,8 @@ class Security:
     def __init__(self, ticker: str, quantity: int, purchase_price: float) -> None:
         """ Initialize a Security. """
         self.ticker = yf.Ticker(ticker)
-        self.quantity = quantity
-        self.purchase_price = purchase_price
+        self.quantity = int
+        self.purchase_price = float
 
 class Portfolio:
     """ A portfolio owned by a user. """
