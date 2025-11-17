@@ -1,24 +1,15 @@
 from typing import NewType
-import uuid
-from pydantic import BaseModel
+from uuid import UUID
+from pydantic import BaseModel, Field, EmailStr
 
 UserID = NewType("UserID", int)
 Username = NewType("Username", str)
-Email = NewType("Email", str)
+Email = EmailStr
 Password = NewType("Password", str)
 
-class User(BaseModel):
+class BaseUser(BaseModel):
     """ A user of the portfolio system. """
-    id: UserID
-    username: Username
-    email: Email
-    password: Password
-
-    @classmethod
-    def create(cls, username: Username, email: Email, password: Password) -> "User":
-        user_id = UserID(uuid.uuid4().int)
-        return cls(id=user_id, username=username, email=email, password=password)
-
-    @property
-    def uuid_obj(self) -> uuid.UUID:
-        return uuid.UUID(int=int(self.id))
+    id: UUID = Field(default_factory=UUID)
+    username: Username = Field(..., min_length=3, max_length=50)
+    email: Email = Field(...)
+    password: Password = Field(..., min_length=8)
