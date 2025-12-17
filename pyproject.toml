@@ -6,9 +6,16 @@ readme = "README.md"
 requires-python = ">=3.13"
 authors = [{ name = "Cedric Anderson Jr", email = "CTANDERSON2@Anderson.edu" }]
 dependencies = [
+    "bcrypt>=5.0.0",
+    "email-validator>=2.3.0",
     "fastapi>=0.121.2",
-    "psycopg>=3.2.12",
+    "jinja2>=3.1.6",
+    "passlib>=1.7.4",
+    "psycopg[binary]>=3.3.1",
     "pydantic>=2.12.4",
+    "python-multipart>=0.0.20",
+    "types-passlib>=1.7.7.20250602",
+    "uvicorn>=0.38.0",
     "yfinance>=0.2.66",
 ]
 
