@@ -1,7 +1,7 @@
 import typer
 import uvicorn
 
-from typer_app.db import init_table
+from portfolio.typer_app.db import init_table
 
 cli = typer.Typer()
 
@@ -9,7 +9,7 @@ cli = typer.Typer()
 def init(
 
 ) -> None:
-    """Initialize table"""
+    """Initialize table."""
     init_table()
     typer.echo("Table initialized")
 
@@ -19,7 +19,7 @@ def run(
     port: int = 8000,
     reload: bool = True,
 ) -> None:
-    """Run Fastapi app"""
+    """Run Fastapi app."""
     uvicorn.run(
         "typer_app.main:app",
         host=host,
