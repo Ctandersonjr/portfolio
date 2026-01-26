@@ -58,7 +58,7 @@ pythonpath = [
 ]
 
 [project.scripts]
-typer_app = "typer_app.cli:main"
+portfolio = "portfolio.cli:main"
 
 [build-system]
 requires = ["uv_build>=0.8.17,<0.9.0"]
